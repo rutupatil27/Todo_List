@@ -11,6 +11,10 @@ addbtn.addEventListener("click",()=>{
     inp.type="checkbox";
     let label= document.createElement('label');
     label.innerText=`${newTodo}`;
+    let editicon= document.createElement('i');
+    editicon.className="fa-solid fa-pen-to-square";
+    editicon.classList.add('icon');
+    editicon.type="button";
     let delicon= document.createElement('i');
     delicon.className="fa-solid fa-trash-can";
     delicon.classList.add('icon');
@@ -18,6 +22,7 @@ addbtn.addEventListener("click",()=>{
     content.prepend(div);
     div.append(inp);
     div.append(label);
+    div.append(editicon);
     div.append(delicon);
 })
 
@@ -37,5 +42,13 @@ content.addEventListener('click',function(event){
     if(event.target.className=='fa-solid fa-trash-can icon'){
         let parent= event.target.parentElement;
         parent.remove();
+    }
+});
+
+content.addEventListener('click',function(event){
+    if(event.target.className=='fa-solid fa-pen-to-square icon'){
+        let edited= prompt("Edit Please:");
+        let prevlabel= event.target.previousElementSibling;
+        prevlabel.innerText=`${edited}`;
     }
 });
