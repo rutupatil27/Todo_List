@@ -1,2 +1,8 @@
-# Todo_List
-A simple and elegant To-Do List web app built using HTML, CSS, and vanilla JavaScript. Allows users to add, complete, and delete tasks. (Work in progress — more features coming soon!)
+# To-Do List (WIP)
+
+📝 A simple to-do list built using HTML, CSS, and JavaScript.  
+Currently supports:
+- Adding new tasks via prompt
+- Marking tasks as complete
+
+🚧 More features and responsive design will be added soon!
