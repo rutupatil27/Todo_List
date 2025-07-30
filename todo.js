@@ -33,3 +33,9 @@ function getinput(){
     }
 };
 
+content.addEventListener('click',function(event){
+    if(event.target.className=='fa-solid fa-trash-can icon'){
+        let parent= event.target.parentElement;
+        parent.remove();
+    }
+});
