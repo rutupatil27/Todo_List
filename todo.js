@@ -1,10 +1,12 @@
 let addbtn= document.querySelector('.newTodo');
 let header= document.querySelector('.header');
 let content= document.querySelector('.content');
+let input= document.querySelector('.enterTodo');
 let newTodo;
 
 addbtn.addEventListener("click",()=>{
-    getinput();
+    newTodo= addNew();
+    if(!newTodo) return;
     let div= document.createElement('div');
     div.classList.add('list');
     let inp= document.createElement('input');
@@ -26,10 +28,21 @@ addbtn.addEventListener("click",()=>{
     div.append(delicon);
 })
 
-function getinput(){
-    newTodo=prompt("Enter a todo");
+function addNew(){
+    let todo= input.value.trim();
+    if(todo===""||todo.length>23){
+        alert("Invalid Todo OR too long Todo");
+        input.value="";
+        return null;
+    }
+    input.value="";
+    return todo;
+}
+
+function editTodo(){
+    newTodo=prompt("Edit the todo");
     while(true){
-        if(newTodo.trim()===""){
+        if(newTodo.trim()===""||newTodo===null){
             newTodo=prompt("Enter a valid todo");
         }
         else{
@@ -47,8 +60,8 @@ content.addEventListener('click',function(event){
 
 content.addEventListener('click',function(event){
     if(event.target.className=='fa-solid fa-pen-to-square icon'){
-        let edited= prompt("Edit Please:");
+        editTodo();
         let prevlabel= event.target.previousElementSibling;
-        prevlabel.innerText=`${edited}`;
+        prevlabel.innerText=`${newTodo}`;
     }
 });
