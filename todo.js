@@ -62,7 +62,8 @@ function deltask(event){
     }   
 }
 
-content.addEventListener('pointerup',edittask);
+content.addEventListener('click',edittask);
+content.addEventListener('touchend',edittask);
 
 function edittask(event){
     if(event.target.className=='fa-solid fa-pen-to-square icon'){
@@ -71,21 +72,23 @@ function edittask(event){
         let editinp= document.createElement('input');
         editinp.type= "text";
         editinp.value= `${currText}`;
-        editinp.id= "editinp";
+        editinp.classList.add('editinp')
+        editinp.style.width= "65%";
+        editinp.style.padding= "0 1rem";
         prevlabel.replaceWith(editinp);
         editinp.focus();
         editinp.addEventListener('keypress',function(event){
             if(event.key=="Enter"){
-                validation(editinp,prevlabel);
+                validation(editinp);
             }
         });
         editinp.addEventListener('blur',function(event){
-            validation(editinp,prevlabel);
+            validation(editinp);
         });
     }
 }
 
-function validation(editinp,prevlabel){
+function validation(editinp){
     const updated = editinp.value.trim();
     if (updated.trim() === "" || updated.length > 23) {
         editinp.value="";
@@ -93,6 +96,7 @@ function validation(editinp,prevlabel){
         editinp.focus();
         return;
     }
-    editinp.replaceWith(prevlabel);
-    prevlabel.innerText= `${editinp.value}`;
+    let newlabel = document.createElement('label');
+    newlabel.innerText= editinp.value;
+    editinp.replaceWith(newlabel);
 }
