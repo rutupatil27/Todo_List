@@ -44,6 +44,6 @@ A clean and responsive To-Do List app built from scratch using **HTML**, **CSS**
 
 | Desktop                         | Mobile                          |
 |-------------------------------|---------------------------------|
-| ![desktop](./assets/desktop.png) | ![mobile](./assets/mobile.png) |  
+| ![desktop](./assets/desktop.png) | ![mobile](./assets/mobile.jpg) |  
 
 ---
