@@ -5,7 +5,7 @@ let input= document.querySelector('.enterTodo');
 let h4= document.querySelector('h4');
 let newTodo;
 
-addbtn.addEventListener("click",()=>{
+function addtask(){
     h4.style.display="none";
     newTodo= addNew();
     if(!newTodo) return;
@@ -28,7 +28,10 @@ addbtn.addEventListener("click",()=>{
     div.append(label);
     div.append(editicon);
     div.append(delicon);
-})
+}
+
+addbtn.addEventListener("click",addtask);
+addbtn.addEventListener("touchend",addtask);
 
 function addNew(){
     let todo= input.value.trim();
@@ -47,7 +50,10 @@ input.addEventListener("keydown", function(event) {
     }
 });
 
-content.addEventListener('click',function(event){
+content.addEventListener('click',deltask);
+content.addEventListener('touchend',deltask);
+
+function deltask(event){
     if(event.target.className=='fa-solid fa-trash-can icon'){
         let parent= event.target.parentElement;
         parent.remove();
@@ -55,10 +61,13 @@ content.addEventListener('click',function(event){
         if(alltodos.length===0){
             h4.style.display="block";
         }
-    }
-});
+    }   
+}
 
-content.addEventListener('click',function(event){
+content.addEventListener('click',edittask);
+content.addEventListener('touchend',edittask);
+
+function edittask(event){
     if(event.target.className=='fa-solid fa-pen-to-square icon'){
         let prevlabel= event.target.previousElementSibling;
         let currText= prevlabel.innerText;
@@ -77,7 +86,7 @@ content.addEventListener('click',function(event){
             validation(editinp,prevlabel);
         });
     }
-});
+}
 
 function validation(editinp,prevlabel){
     const updated = editinp.value.trim();
