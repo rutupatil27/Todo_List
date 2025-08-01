@@ -30,8 +30,7 @@ function addtask(){
     div.append(delicon);
 }
 
-addbtn.addEventListener("click",addtask);
-addbtn.addEventListener("touchend",addtask);
+addbtn.addEventListener("pointerup",addtask);
 
 function addNew(){
     let todo= input.value.trim();
@@ -46,12 +45,11 @@ function addNew(){
 
 input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-        addbtn.click();
+        addtask();
     }
 });
 
-content.addEventListener('click',deltask);
-content.addEventListener('touchend',deltask);
+content.addEventListener('pointerup',deltask);
 
 function deltask(event){
     if(event.target.className=='fa-solid fa-trash-can icon'){
@@ -64,8 +62,7 @@ function deltask(event){
     }   
 }
 
-content.addEventListener('click',edittask);
-content.addEventListener('touchend',edittask);
+content.addEventListener('pointerup',edittask);
 
 function edittask(event){
     if(event.target.className=='fa-solid fa-pen-to-square icon'){
