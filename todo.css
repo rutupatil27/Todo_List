@@ -109,7 +109,7 @@ button{
     border-radius: 100px;
     background-color: rgb(163, 92, 230);
     position: absolute;
-    right: 7%;
+    right: 6%;
     box-shadow: 0 0 0.5rem rgb(173, 170, 170);
 }
 
@@ -153,9 +153,9 @@ h4{
     }
 }
 
-@media(max-width:320px){
+@media(max-width:425px){
     .main{
-        width: 60vh;
+        width: 300px;
     }
     button{
         right: 1%;
