@@ -6,6 +6,7 @@
 
 body{
     background-color: rgb(207, 170, 241);
+    color-scheme: light;
 }
 
 .main{
@@ -161,3 +162,4 @@ h4{
         right: 1%;
     }
 }
+
